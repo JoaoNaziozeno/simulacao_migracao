@@ -40,7 +40,7 @@ foreach ($dadosVeiculos as $veiculo) {
     $data_cadastro = $veiculo['data_cadastro'];
 
     $sqlInsert = "INSERT INTO veiculos2 (marca, modelo, ano, quilometragem, preco, cor, combustivel, cambio, portas, observacoes, data_cadastro) VALUES ('$marca', '$modelo', '$ano', '$quilometragem', '$preco', '$cor', '$combustivel', '$cambio', '$portas', '$observacoes', '$data_cadastro')";
-    $conexaoDestino->query($sqlInsert);
+    //$conexaoDestino->query($sqlInsert);
 
     if ($conexaoDestino->query($sqlInsert) === TRUE) {
         echo "Registro inserido com sucesso na tabela destino veiculos. <br>";
