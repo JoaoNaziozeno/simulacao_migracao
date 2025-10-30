@@ -2,6 +2,10 @@
 <?php
 include 'conexao.php';
 
+$sql = "SELECT * FROM veiculos";
+$resultado = $conexaoOrigem->query($sql);
+
+
 // verifica e guarda a quantidade de linhas na tabela origem veiculos 
 if ($resultado->num_rows > 0) {
     $dadosVeiculos =[];

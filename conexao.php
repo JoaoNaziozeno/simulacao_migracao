@@ -10,7 +10,4 @@ $conexaoOrigem = new mysqli($host, $user, $passaword, $bancoOrigem);
 $bancoDestino = "sislogin2";
 $conexaoDestino = new mysqli($host, $user, $passaword, $bancoDestino);
 
-$sql = "SELECT * FROM veiculos";
-$resultado = $conexaoOrigem->query($sql);
-
 ?>
