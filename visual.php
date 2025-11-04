@@ -23,7 +23,7 @@ include 'conexao.php';
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <button class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalExxcluir">
+            <button class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalExcluir">
               Excluir Veículos
             </button>
           </li>
@@ -63,8 +63,6 @@ include 'conexao.php';
                   <p class="lead">Nenhum veículo disponível no momento.</p>
                 </div>';
         }
-
-        $conexaoDestino->close();
         ?>
     </div>
   </section>
@@ -79,27 +77,27 @@ include 'conexao.php';
       </div>
       <div class="modal-body">
         <p>Selecione o veículo que deseja excluir:</p>
-        <form action="excluir.php" method="get">
-          <div class="mb-3">
-            <select name="id" class="form-select" required>
-              <option value=""> -- Escolha um veículo -- </option>
-              <?php
+        <div class="modal-footer">
+          <form action="excluir.php" method="get">
+            <div class="mb-3">
+              <select name="id" class="form-select" required>
+                <option value=""> -- Escolha um veículo -- </option>
+                <?php
 
-              $sqlTodos = "SELECT id, marca, modelo, ano FROM veiculos2 ORDER BY marca";
-              $resultTodos = $conexaoDestino->query($sqlTodos);
+                $sqlTodos = "SELECT id, marca, modelo, ano FROM veiculos2 ORDER BY marca";
+                $resultTodos = $conexaoDestino->query($sqlTodos);
 
-              while ($v =   $resultTodos->fetch_assoc()) {
+                while ($v =   $resultTodos->fetch_assoc()) {
                 echo   '<option value="'.$v['id'].'">'.$v['marca'].' '.$v['modelo'].' '.$v['ano'].'</option>';
-              }
-              ?>
-            </select>
-          </div>
-          </tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-      </div>
+                }
+
+                $conexaoDestino->close();
+                ?>
+              </select>
+            </div>
+          </form>
+        </div>
+      
     </div>
   </div>
 </div>
