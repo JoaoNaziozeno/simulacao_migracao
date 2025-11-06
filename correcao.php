@@ -13,7 +13,7 @@ if ($resultado && $resultado->num_rows > 0) {
             continue;
         }
 
-        $modeloCorrigido = str_replace(',', ' ', $modelo);
+        $modeloCorrigido = str_replace(',', '', $modelo);
 
         if ($modeloCorrigido !== $modelo) {
             $updateSql = $conexaoOrigem->prepare("UPDATE veiculos SET modelo = ? WHERE id = ?");
